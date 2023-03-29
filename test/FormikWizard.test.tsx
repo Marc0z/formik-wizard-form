@@ -65,6 +65,7 @@ describe('<FormikWizard />', () => {
           renderComponent,
           handlePrev,
           handleNext,
+          setStep,
           isNextDisabled,
           isPrevDisabled,
           isLastStep,

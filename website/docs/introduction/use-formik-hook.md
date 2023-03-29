@@ -114,6 +114,7 @@ const MultiStepForm = () => {
     isNextDisabled,
     isPrevDisabled,
     isLastStep,
+    setStep,
   } = useFormikWizard({
     initialValues: { firstName: '', lastName: '' },
     onSubmit: values => console.log(values),

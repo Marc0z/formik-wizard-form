@@ -66,6 +66,9 @@ interface RenderProps extends FormikProps<FormikValues> {
 
   /** Handler to be called on next button click */
   handleNext: () => void;
+    
+  /** Handler to directly jump to step. Not validated */
+  setStep: () => void;
 
   /** Current step index in number */
   currentStepIndex?: number;

@@ -17,6 +17,7 @@ const FormikWizard = ({
     isLastStep,
     handlePrev,
     handleNext,
+    setStep,
   } = useWizard(activeStepIndex, steps, validateOnNext);
   const currentStep: Step = steps[currentStepIndex];
   const { component: StepComponent } = currentStep;
@@ -36,6 +37,7 @@ const FormikWizard = ({
               currentStepIndex,
               isPrevDisabled,
               isNextDisabled: (validateOnNext && !formikBag.isValid) || false,
+              setStep,
               renderComponent: () => (
                 <StepComponent
                   {...formikBag}

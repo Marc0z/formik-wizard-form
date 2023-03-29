@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import {useState, useCallback } from 'react';
 import { Step } from './types';
 import { isFunction } from './utils';
 
@@ -70,6 +70,13 @@ const useWizard = (
     [goToNext, currentStep, beforeNext, isLastStep, validateOnNext]
   );
 
+  const setStep = useCallback(
+    (stepNumber: number) => async () => {
+      setCurrentStep(stepNumber)
+    },
+    [setCurrentStep]
+  );
+
   return {
     currentStepIndex: currentStep,
     isPrevDisabled,
@@ -79,6 +86,7 @@ const useWizard = (
     goToNext,
     handlePrev,
     handleNext,
+    setStep,
   };
 };
 

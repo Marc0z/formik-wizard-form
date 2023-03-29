@@ -18,6 +18,11 @@ export type Step = {
     currentStepIndex: number
   ) => Promise<any>;
 
+  /** Handler to be called before moving to next step */
+  setStep?: (
+    step: number,
+  ) => Promise<any>;
+
   /** React functional or class component */
   component: React.ComponentType<
     FormikProps<FormikValues> & { currentStepIndex: number }
@@ -30,6 +35,9 @@ export interface RenderProps extends FormikProps<FormikValues> {
 
   /** Handler to be called on next button click */
   handleNext: () => void;
+
+  /** Handler to be called on next button click */
+  setStep: (stepNumber: number) => void;
 
   /** Current step index in number */
   readonly currentStepIndex?: number;
