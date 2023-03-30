@@ -35,7 +35,7 @@ const useFormikWizard = ({
     currentStepIndex,
     isPrevDisabled,
     isNextDisabled: (validateOnNext && !formik.isValid) || false,
-    setStep,
+    setStep: async (stepNumber: number) => setStep(stepNumber, formik),
     renderComponent: () => (
       <StepComponent {...formik} currentStepIndex={currentStepIndex} />
     ),

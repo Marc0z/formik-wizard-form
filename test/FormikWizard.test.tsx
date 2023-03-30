@@ -86,6 +86,18 @@ describe('<FormikWizard />', () => {
             >
               {isLastStep ? 'Finish' : 'Next'}
             </button>
+            <button
+              type="button"
+              onClick={() => setStep(1)}
+            >
+              SetStep1
+            </button>
+            <button
+              type="button"
+              onClick={() => setStep(2)}
+            >
+              SetStep2
+            </button>
           </>
         )}
       </FormikWizard>
@@ -93,6 +105,8 @@ describe('<FormikWizard />', () => {
 
     const nextButton = getByText('Next');
     const previousButton = getByText('Previous');
+    const setStepMiddle = getByText('SetStep1');
+    const setStepLast = getByText('SetStep2');
 
     expect(getByText('Previous')).toHaveAttribute('disabled');
     expect(nextButton).not.toHaveAttribute('disabled');
@@ -145,6 +159,12 @@ describe('<FormikWizard />', () => {
     await waitFor(() => expect(getByText('Email')).toBeInTheDocument());
 
     fireEvent.click(nextButton);
+    await waitFor(() => expect(getByText('Designation')).toBeInTheDocument());
+
+    fireEvent.click(setStepMiddle);
+    await waitFor(() => expect(getByText('Email')).toBeInTheDocument());
+
+    fireEvent.click(setStepLast);
     await waitFor(() => expect(getByText('Designation')).toBeInTheDocument());
 
     fireEvent.click(nextButton);

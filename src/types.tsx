@@ -20,7 +20,7 @@ export type Step = {
 
   /** Handler to be called before moving to next step */
   setStep?: (
-    step: number,
+    stepNumber: number,
   ) => Promise<any>;
 
   /** React functional or class component */

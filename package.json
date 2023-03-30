@@ -38,7 +38,7 @@
     "release": "changeset publish",
     "start": "tsdx watch",
     "build": "tsdx build",
-    "test": "tsdx test --env=jsdom",
+    "test": "tsdx test --env=jsdom --verbose=true",
     "test:watch": "npm run test -- --watchAll",
     "lint": "tsdx lint",
     "lint:staged": "lint-staged",
